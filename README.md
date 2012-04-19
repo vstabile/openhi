@@ -1,7 +1,7 @@
 OpenHi
 ======
 
-OpenHi is an API for creating and joining online classrooms. It was developed by Hi!China for its own use and there is still no plan to open the platform.
+OpenHi is an API for creating and joining online classrooms. It was developed by [Hi!China](www.hichinaschool.com) for its own use and there is still no plan to open the platform.
 
 Installation
 ------------
@@ -17,7 +17,7 @@ How it works
 
 ### Parnet ID and secret
 
-We intend to open our platform at some point, but for now it's only used to give Mandarin lessons by Hi!China. If you're interested in using our platform please send us an e-mail to <contact@hichinaschool.com>.
+We intend to open our platform at some point, but for now it's only used to give Mandarin lessons by [Hi!China](www.hichinaschool.com). If you're interested in using our platform please send us an e-mail to <contact@hichinaschool.com>.
 
 ### Create a classroom
 
