@@ -62,8 +62,8 @@ module OpenHi
     def generate_token(opts = {})
       { :room_id => '', :role => RoleConstants::ATTENDEE, :user_id => nil, :name => '', :skype => '', :expire_time => nil }.merge!(opts)
       
-      unless role == RoleConstants::ATTENDEE || role == RoleConstants::HOST
-        raise OpenHiException.new "'#{role}' is not defined as a role"
+      unless opts[:role] == RoleConstants::ATTENDEE || opts[:role] == RoleConstants::HOST
+        raise OpenHiException.new "'#{opts[:role]}' is not defined as a role"
       end
 
       data_params = {
@@ -95,12 +95,15 @@ module OpenHi
     end
 
     def create_room(opts = {})
-      opts.merge!({:partner_id => @partner_id})
+      opts.merge!({ :partner_id => @partner_id })
+      
+      opts[:content] = "#{opts[:course]}-#{opts[:level]}-#{opts[:lesson]}" if opts[:content].blank?
+      
       doc = do_request("/rooms/create.xml", opts)
       if not doc.get_elements('Errors').empty?
         raise OpenHiException.new doc.get_elements('Errors')[0].get_elements('error')[0].children[0].to_s
       end
-      OpenHi::Room.new(doc.root.get_elements('Room')[0].get_elements('room_id')[0].children[0].to_s)
+      OpenHi::Room.new(doc.root.get_elements('room')[0].get_elements('room_id')[0].children[0].to_s)
     end
 
     protected
