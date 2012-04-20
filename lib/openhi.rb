@@ -14,7 +14,7 @@ Net::HTTP.version_1_2
 require 'monkey_patches'
 
 module OpenHi
-  API_URL = "http://localhost/hichinaschool.com/openhi";
+  API_URL = "http://oh.hichinaschool.com";
 
   DIGEST = OpenSSL::Digest::Digest.new('sha1')
 
